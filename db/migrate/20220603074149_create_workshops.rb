@@ -7,8 +7,8 @@ class CreateWorkshops < ActiveRecord::Migration[7.0]
       t.date :end_date
       t.string :start_time
       t.string :end_time
-      t.integer :total_sits
-      t.integer :remaining_sits
+      t.integer :total_seats
+      t.integer :remaining_seats
       t.integer :registration_fee
 
       t.timestamps

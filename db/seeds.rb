@@ -14,8 +14,8 @@ workshops = Workshop.create!([{
     end_date: Date.today + 20.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
-    total_sits: 100,
-    remaining_sits: 0,
+    total_seats: 100,
+    remaining_seats: 100,
     registration_fee: 100
 },
 {
@@ -25,8 +25,8 @@ workshops = Workshop.create!([{
     end_date: Date.today + 20.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
-    total_sits: 100,
-    remaining_sits: 0,
+    total_seats: 100,
+    remaining_seats: 100,
     registration_fee: 1000
 },
 {
@@ -36,8 +36,8 @@ workshops = Workshop.create!([{
     end_date: Date.today + 20.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
-    total_sits: 100,
-    remaining_sits: 0,
+    total_seats: 100,
+    remaining_seats: 100,
     registration_fee: 1200
 }])
 puts "workshops created"

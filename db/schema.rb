@@ -39,8 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_104446) do
     t.date "end_date"
     t.string "start_time"
     t.string "end_time"
-    t.integer "total_sits"
-    t.integer "remaining_sits"
+    t.integer "total_seats"
+    t.integer "remaining_seats"
     t.integer "registration_fee"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

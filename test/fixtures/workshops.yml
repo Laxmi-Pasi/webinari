@@ -7,8 +7,8 @@ one:
   end_date: 2022-06-03
   start_time: MyString
   end_time: MyString
-  total_sits: 1
-  remaining_sits: 1
+  total_seats: 1
+  remaining_seats: 1
   registration_fee: 1
 
 two:
@@ -18,6 +18,6 @@ two:
   end_date: 2022-06-03
   start_time: MyString
   end_time: MyString
-  total_sits: 1
-  remaining_sits: 1
+  total_seats: 1
+  remaining_seats: 1
   registration_fee: 1
