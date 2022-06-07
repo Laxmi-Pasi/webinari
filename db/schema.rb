@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_06_03_104446) do
   create_table "bookings", force: :cascade do |t|
-    t.integer "no_if_tickets"
+    t.integer "no_of_tickets"
     t.float "amount_paid"
     t.string "stripe_transaction_id"
     t.integer "customer_id", null: false
