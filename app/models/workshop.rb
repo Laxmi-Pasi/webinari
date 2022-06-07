@@ -18,4 +18,9 @@ class Workshop < ApplicationRecord
   def daily_duration
     "Everyday from #{start_time} to #{end_time} (#{daily_workshop_hours})"
   end
+
+  # to check workshop is upcoming 
+  def is_upcoming_workshop?
+    start_date > Date.today
+  end
 end

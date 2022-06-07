@@ -8,10 +8,10 @@
 puts "workshops are being created"
 
 workshops = Workshop.create!([{
-    name:"Full stack Ruby on Rails Development Bootcamp",
+    name:"C++",
     description: "Some dummy project.",
-    start_date: Date.today + 2.days,
-    end_date: Date.today + 20.days,
+    start_date: Date.today - 2.days,
+    end_date: Date.today - 1.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
     total_seats: 100,
@@ -19,10 +19,10 @@ workshops = Workshop.create!([{
     registration_fee: 100
 },
 {
-    name:"Python",
+    name:"DSA",
     description: "Some dummy project.",
-    start_date: Date.today + 12.days,
-    end_date: Date.today + 20.days,
+    start_date: Date.today - 12.days,
+    end_date: Date.today - 6.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
     total_seats: 100,
@@ -30,10 +30,10 @@ workshops = Workshop.create!([{
     registration_fee: 1000
 },
 {
-    name:"Advance Java",
+    name:"DBMS",
     description: "Some dummy project.",
-    start_date: Date.today + 2.days,
-    end_date: Date.today + 20.days,
+    start_date: Date.today - 22.days,
+    end_date: Date.today - 20.days,
     start_time: "10:00 AM",
     end_time: "3:00 AM",
     total_seats: 100,
