@@ -22,6 +22,9 @@ class StripeService
   #to generate card token
 
   def create_card_token(params)
+    
+    binding.pry
+    
     Stripe::Token.create({
       card: {
         number: params[:card_number].to_s,
