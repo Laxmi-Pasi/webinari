@@ -10,19 +10,23 @@ class BookingsController < ApplicationController
     @card = @stripe_service.create_stripe_customer_card(card_token_params, @stripe_customer)
     @amount_to_be_paid = params[:no_of_tickets].to_i * @workshop.registration_fee
     @charge = @stripe_service.create_stripe_charge(@amount_to_be_paid, @stripe_customer.id, @card.id,@workshop)
-    
-    binding.pry
+
     @booking = @workshop.bookings.create(
       customer_id: @customer.id,
       stripe_transaction_id: @charge.id,
       no_of_tickets: params[:no_of_tickets].to_i,
       amount_paid: @amount_to_be_paid
     )
+    BookingsMailer.booking_confirmation(@booking).deliver_now
     redirect_to workshop_path(@workshop), notice: 'your tickets has been booked'
   rescue Stripe::StripeError => error
     redirect_to workshop_path(@workshop), notice: "#{error.message}"
   end
 
+  #to display booking details
+  def booking_details
+    
+  end
   private
 
   def customer_params
