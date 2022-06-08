@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_08_052615) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_061225) do
   create_table "bookings", force: :cascade do |t|
     t.integer "no_of_tickets"
     t.float "amount_paid"
@@ -19,6 +19,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_052615) do
     t.integer "workshop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "order_number"
     t.index ["customer_id"], name: "index_bookings_on_customer_id"
     t.index ["workshop_id"], name: "index_bookings_on_workshop_id"
   end
