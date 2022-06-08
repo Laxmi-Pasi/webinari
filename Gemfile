@@ -75,9 +75,7 @@ end
 
 #to added bootsrap 5 in rails
 gem 'cssbundling-rails'
-
 gem "pry", "~> 0.14.1"
-
 gem "stripe", "~> 6.2"
-
 gem "rqrcode", "~> 2.0"
+gem 'friendly_id', '~> 5.4.0'
