@@ -31,7 +31,7 @@
     </div>
   </div>
 </div>
-<% if @workshop.is_upcoming_workshop? %>
+<% if @workshop.is_upcoming_workshop? && (@workshop.remaining_seats!=0) %>
 <div class="col-lg-4 mt-4">
   <div class="card shadow mb-3">
     <div class="card-body">

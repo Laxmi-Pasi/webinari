@@ -7,6 +7,12 @@ class Workshop < ApplicationRecord
   validates :total_seats, :registration_fee, presence: true, numericality: true
   validates :end_date, comparison: { greater_than: :start_date, 
     messaage: 'can not be before start date'}
+  
+  scope :upcoming_workshops, -> { where('start_date > ?', Date.today)}
+  scope :past_workshops, -> { where('end_date < ?', Date.today)}
+  scope :ongoing_workshops, -> { where('start_date <= ? and end_date > ?', Date.today, Date.today)}
+
+  # Ex:- scope :active, -> {where(:active => true)}  
   def total_duration
     "From #{start_date} to #{end_date}"
   end
@@ -19,8 +25,8 @@ class Workshop < ApplicationRecord
     "Everyday from #{start_time} to #{end_time} (#{daily_workshop_hours})"
   end
 
-  # to check workshop is upcoming 
+  # to check workshop is upcoming or ongoing so we can show booking form
   def is_upcoming_workshop?
-    start_date > Date.today
+    (start_date > Date.today) || ((start_date <= Date.today) && (Date.today < end_date))
   end
 end
