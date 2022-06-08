@@ -35,7 +35,7 @@
 <div class="col-lg-4 mt-4">
   <div class="card shadow mb-3">
     <div class="card-body">
-      <h4 class="card-title mb-2">Reserve your sit!<%= notice %>
+      <h4 class="card-title mb-2">Reserve your sit!
       </h4>
       <%= form_with url: bookings_path, data: { turbo: false} do |form| %>
         <%= form.hidden_field :workshop_id, value: @workshop.id %>
