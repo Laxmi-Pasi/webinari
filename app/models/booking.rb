@@ -1,5 +1,6 @@
 require "rqrcode"
 class Booking < ApplicationRecord
+  has_many :refunds
   belongs_to :customer
   belongs_to :workshop
 

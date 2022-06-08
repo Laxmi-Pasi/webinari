@@ -10,4 +10,9 @@ Rails.application.routes.draw do
       get :booking_details
     end
   end
+
+  #admin users
+  namespace :admin do
+    get 'dashboard' => 'dashboard#index'
+  end
 end

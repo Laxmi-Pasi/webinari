@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_08_075328) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_08_112240) do
   create_table "admin_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -61,6 +61,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_075328) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "refunds", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "booking_id", null: false
+    t.integer "no_of_tickets"
+    t.string "state"
+    t.string "stripe_refund_id"
+    t.boolean "is_partial_refund"
+    t.float "amount_refunded"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_refunds_on_booking_id"
+    t.index ["customer_id"], name: "index_refunds_on_customer_id"
+  end
+
   create_table "workshops", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -79,4 +93,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_08_075328) do
 
   add_foreign_key "bookings", "customers"
   add_foreign_key "bookings", "workshops"
+  add_foreign_key "refunds", "bookings"
+  add_foreign_key "refunds", "customers"
 end
