@@ -11,8 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
-  #admin users
   namespace :admin do
     get 'dashboard' => 'dashboard#index'
   end
+
+  resources :refunds
 end
