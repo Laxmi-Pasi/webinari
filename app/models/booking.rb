@@ -20,4 +20,8 @@ class Booking < ApplicationRecord
   def is_refundable?
     workshop.start_date > Date.today
   end
+
+  def is_ongoing?
+    (workshop.start_date <= Date.today) && (Date.today < workshop.end_date)
+  end
 end

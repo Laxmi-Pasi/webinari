@@ -27,6 +27,8 @@
         <%= @workshop.description %>
       </p>
       <%= link_to 'Back to Workshops', workshops_path,
+      class: "btn btn-outline-danger btn-lg mt-3"%> 
+      <%= link_to 'Click here for refund', new_refund_path,
       class: "btn btn-outline-danger btn-lg mt-3"%>
     </div>
   </div>

@@ -12,7 +12,10 @@ class RefundsController < ApplicationController
           booking_id: booking.id,
           state: 'accepted'
         )
-        redirect_to edit_refund_path(@refund), notice: 'your booking request valid. Please fill other details to process your refund request.'
+        # redirect_to edit_refund_path(@refund), notice: 'your booking request valid. Please fill other details to process your refund request.'
+        redirect_to refund_path(@refund)
+      elsif booking.is_ongoing?
+        redirect_to new_refund_path, alert: "You are requesting refund for ongoing workshop.Refund are allowed only for future workshop "
       else
         redirect_to new_refund_path, alert: "You are requesting refund for past workshop.Refund are allowed only for future workshop "
       end
@@ -25,9 +28,25 @@ class RefundsController < ApplicationController
     @refund = Refund.find(params[:id])
   end
 
-  def update
-    
-    binding.pry
-    
+  def update 
+  end
+
+  def show
+    @refund = Refund.find(params[:id])
+  end
+  
+  def refund_details
+    @refund = Refund.find(params[:id])
+    @booking = Booking.find(@refund.booking_id)
+    stripe_charge_id = @booking.stripe_transaction_id
+    @stripe_service = StripeService.new
+    @stripe_refund = @stripe_service.create_stripe_refund(stripe_charge_id)
+    if @stripe_refund
+      @refund.update(stripe_refund_id: @stripe_refund.id, is_partial_refund: false, no_of_tickets: @booking.no_of_tickets, 
+        amount_refunded: @stripe_refund.amount)
+      redirect_to refund_details_refund_path(@refund), notice:"Your Refund is sucessfully send. Your refund details are shown below."
+    else
+      redirect_to refund_path(@refund), notice: " Something went wrong. Please, try again!"
+    end
   end
 end

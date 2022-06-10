@@ -1,0 +1,23 @@
+<div class="col-lg-6 mt-5">
+  <div class="card show">
+    <div class="card-body">
+      <h4>Your Refund details</h4>
+      <p class="lead">
+      <strong>Refund for:</strong>
+      <%= link_to @refund.booking.workshop.name, @refund.booking.workshop, target: '_blank' %>
+      </p>
+      <p class="lead">
+        <strong>Your Refund Id:</strong>
+        <%= @refund.stripe_refund_id %>
+      </p>
+      <p class="lead">
+        <strong>Total Tickets Cancelled:</strong>
+        <%= @refund.no_of_tickets %>
+      </p>
+      <p class="lead">
+        <strong>Amount Refunded:</strong>
+        <%= @refund.amount_refunded %>
+      </p>
+    </div>
+  </div>
+</div>

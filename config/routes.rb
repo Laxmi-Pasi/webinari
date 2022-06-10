@@ -15,5 +15,10 @@ Rails.application.routes.draw do
     get 'dashboard' => 'dashboard#index'
   end
 
-  resources :refunds
+  resources :refunds do
+    member do
+      get :refund_details
+      post :refund_details
+    end
+  end
 end

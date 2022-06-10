@@ -53,7 +53,7 @@ class StripeService
   end
 
   #create refund 
-  def create_stripe_refund
+  def create_stripe_refund(stripe_charge_id)
     Stripe::Refund.create({ charge: stripe_charge_id})
   end
 end
