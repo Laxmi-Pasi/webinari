@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :refunds do
     member do
       get :refund_details
-      post :refund_details
+      post :post_refund_details
     end
   end
 end

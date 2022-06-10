@@ -35,7 +35,7 @@ class RefundsController < ApplicationController
     @refund = Refund.find(params[:id])
   end
   
-  def refund_details
+  def post_refund_details
     @refund = Refund.find(params[:id])
     @booking = Booking.find(@refund.booking_id)
     stripe_charge_id = @booking.stripe_transaction_id
@@ -48,5 +48,9 @@ class RefundsController < ApplicationController
     else
       redirect_to refund_path(@refund), notice: " Something went wrong. Please, try again!"
     end
+  end
+
+  def refund_details
+    @refund = Refund.find(params[:id])
   end
 end
